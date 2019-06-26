@@ -1,4 +1,9 @@
-const userReducer = (state = {}, action)=>{
+const stateInitialValue = {
+                                username: "kavya",
+                                email:"kavya@gmail.com",
+                                password: "test@123"
+                            }
+const userReducer = (state = stateInitialValue, action)=>{
     switch(action.type){
         case 'SET_USER':{
             return {...action.payload}

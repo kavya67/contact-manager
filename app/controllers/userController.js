@@ -9,7 +9,8 @@ router.post('/register', (req,res)=>{
     const body = req.body
     const user = new User(body)
     user.save()
-        .then(user=>res.send(pick(user, 'username', 'email')))
+        .then(user=>res.send(user))  
+        // pick(user, 'username', 'email')
         .catch(err=>res.send(err))
 })
 

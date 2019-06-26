@@ -4,7 +4,7 @@ import contactReducers from '../reducers/contactReducers'
 
 const configureStore = ()=>{
     const store = createStore(combineReducers({
-        users: userReducers,
+        user: userReducers,
         contacts: contactReducers
         
     }))
