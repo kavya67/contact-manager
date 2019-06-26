@@ -3,9 +3,10 @@ import {BrowserRouter, Link, Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import _ from 'lodash'
 
-import RegisterForm  from './components/Register'
-import LoginForm from './components/Login'
-import Account from './components/Account'
+import RegisterForm  from './components/Users/Register'
+import LoginForm from './components/Users/Login'
+import Account from './components/Users/Account'
+import Logout from './components/Users/Logout'
 
 class App extends React.Component{
     render(){
@@ -23,6 +24,7 @@ class App extends React.Component{
                             ) : (
                                 <div>
                                    <Link to="/users/account">Account</Link>
+                                   <Link to="/users/logout">Logout</Link>
                                    
                                 </div>
                             )}
@@ -32,6 +34,7 @@ class App extends React.Component{
                             <Route path="/users/login" component={LoginForm} exact/>
                             <Route path ="/users/register" component={RegisterForm} exact/>
                             <Route path="/users/account" component={Account} exact/>
+                            <Route path="/users/logout" component={Logout} exact/>
                         </Switch>
                 </BrowserRouter>
             </div>

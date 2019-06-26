@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from '../config/config'
+import axios from '../../config/config'
 
 class RegisterForm extends React.Component{
     constructor(props){

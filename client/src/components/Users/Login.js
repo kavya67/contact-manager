@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from '../config/config'
+import axios from '../../config/config'
 
 class LoginForm extends React.Component{
     constructor(){
@@ -22,18 +22,19 @@ class LoginForm extends React.Component{
     handleSubmit(e){
         e.preventDefault()
         const formData = {
-            email:this.state.email,
-            password:this.state.password
+                email:this.state.email,
+                password:this.state.password
         }
         axios.post(`/users/login`,formData)
             .then(response=>{
-                if(response.data.errors){
-                    alert('Invalid Email / Password')
+                // console.log(response.data.token)
+                if(response.data.token){
+                        const token = response.data.token
+                        localStorage.setItem('userAuthToken',token)
+                        this.props.history.push('/users/account')
                 }else{
-                    const token = response.data.token
-                    localStorage.setItem('userAuthToken',token)
-                    this.props.history.push('/users/account')
                     
+                        alert('Invalid email / password')
                 }
             })
 
