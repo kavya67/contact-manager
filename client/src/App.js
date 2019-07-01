@@ -8,6 +8,8 @@ import LoginForm from './components/Users/Login'
 import Account from './components/Users/Account'
 import Logout from './components/Users/Logout'
 
+import ContactForm from './components/ContactPosts/contactForm'
+
 class App extends React.Component{
     render(){
         return(
@@ -35,6 +37,8 @@ class App extends React.Component{
                             <Route path ="/users/register" component={RegisterForm} exact/>
                             <Route path="/users/account" component={Account} exact/>
                             <Route path="/users/logout" component={Logout} exact/>
+
+                            <Route path="/contacts" component={ContactForm} exact/>
                         </Switch>
                 </BrowserRouter>
             </div>

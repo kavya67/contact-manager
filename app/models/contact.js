@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 //schema
 const Schema = mongoose.Schema
-const Group = require('./group')
+// const Group = require('./group')
 
 
 const ContactSchema = new Schema({
@@ -16,24 +16,25 @@ const ContactSchema = new Schema({
     email:{
         type:String,
     },
-    group: {
+    user: {
         type: Schema.Types.ObjectId,
-        ref: "Group"
-    }
+        ref: 'User'
+    },
+    
 })
 
-ContactSchema.post('save', function(next){
-    const contact = this
-    Group.findById(contact.group)
-        .then(function(group){
-            group.contacts.push({contact: contact._id})
-            group.save()
-        })
-            .then(function(){
-                next()
-            })
+// ContactSchema.post('save', function(next){
+//     const contact = this
+//     Group.findById(contact.group)
+//         .then(function(group){
+//             group.contacts.push({contact: contact._id})
+//             group.save()
+//         })
+//             .then(function(){
+//                 next()
+//             })
    
-})
+// })
 
 //model based on the schema
 

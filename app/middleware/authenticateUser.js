@@ -5,6 +5,7 @@ const authenticateUser = function(req, res, next){
         .then(user=>{
            if(user){
                 req.user = user,
+                // console.log(req.user)
                 req.token = token
                 next()
            }else{
@@ -12,6 +13,13 @@ const authenticateUser = function(req, res, next){
            }
         })
         .catch(err=>res.send('401').send(err))
+
+        
 }
+
+module.exports = {
+    authenticateUser
+}
+
 
 module.exports = authenticateUser

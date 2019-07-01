@@ -5,6 +5,7 @@ import axios from './config/config'
 import App from './App'
 import {Provider} from 'react-redux'
 import {setUser} from './actions/usersAction'
+import {setContact} from './actions/contactsAction'
 import configureStore from './store/configureStore'
 
 const  store = configureStore()
@@ -21,6 +22,16 @@ if(localStorage.getItem('userAuthToken')){
     .then(response=>{
         store.dispatch(setUser(response.data))
     })
+
+    axios.get(`/contacts`,{
+        headers: {
+            'x-auth': localStorage.getItem('userAuthToken')
+        }
+    })
+        .then(response=>{
+            
+            store.dispatch(setContact(response.data))
+        })
 }
 
 const jsx = <Provider store={store}>

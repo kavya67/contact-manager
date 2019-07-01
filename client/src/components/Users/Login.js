@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from '../../config/config'
+// import {setUser} from '../../actions/usersAction'
+// import {connect} from 'react-redux'
 
 class LoginForm extends React.Component{
     constructor(){
