@@ -31,35 +31,44 @@ class RegisterForm extends React.Component{
 
         }
                        
-
-                            axios.post(`/users/register`, formData)
-                                .then(response=>{
-                                    if(response.data.errors){
-                                    alert(response.data.message)
-                                    }else{
-                                        this.props.history.push('/users/login')
+        axios.post(`/users/register`, formData)
+            .then(response=>{
+                if(response.data.errors){
+                    alert(response.data.message)
+                        }else{
+                                this.props.history.push('/users/login')
                                     }
-                                })
+                                        })
     }
     render(){
         return(
-            <div>
+            <div >
+                <h1 className="display-4 text-center">Register</h1>
                 <form onSubmit={this.handleSubmit}>
+                    <div className = "form-group">
                     <label>
-                        username:
-                        <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
-                    </label>
+                        username </label>
+                        <input type="text" className = "form-control" name="username" value={this.state.username} onChange={this.handleChange}/>
+                    
+                    </div>
+                    <div className = "form-group">
                     <label>
-                        Email:
-                        <input type="text" name="email" value = {this.state.email} onChange={this.handleChange}/>
-                    </label>
+                        Email </label>
+                        <input type="text" className = "form-control" name="email" value = {this.state.email} onChange={this.handleChange}/>
+                    
+                    </div>
+                   
+                    <div className = "form-group">
                     <label>
-                        Password:
-                        <input type="password" name = "password" value={this.state.password} onChange={this.handleChange}/>
-                    </label>
+                        Password  </label>
+                        <input type="password" className = "form-control" name = "password" value={this.state.password} onChange={this.handleChange}/>
+                   
+                    </div>
+                   
                     <label>
                         <input type="submit"/>
                     </label>
+                    
                 </form>
             </div> 
         )

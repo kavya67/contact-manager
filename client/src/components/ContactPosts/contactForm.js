@@ -45,20 +45,23 @@ class ContactForm extends React.Component{
     render(){
         return(
             <div>
-                <h2>Contact Form</h2>
+                <h2 className="display-4 text-center">Contact Form</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Name:
-                            <input type="text" value={this.state.name} name="name" onChange={this.handleChange}/>
-                    </label><br/>
-                    <label>
-                        mobile:
-                        <input type="text" value={this.state.mobile} name="mobile" onChange={this.handleChange}/>
-                    </label>
-                    <label>
-                        Email:
-                        <input type="text" value={this.state.email} name="email" onChange={this.handleChange}/>
-                    </label>
+                    <div className = "form-group">
+                        <label>Name</label>
+                        <input type="text" className = "form-control" value={this.state.name} name="name" onChange={this.handleChange}/>
+                    </div>
+                    
+                    <div className = "form-group">
+                        <label>mobile</label>
+                        <input type="text" className = "form-control" value={this.state.mobile} name="mobile" onChange={this.handleChange}/>
+                    </div>
+                    
+                    <div className = "form-group">
+                        <label> Email </label>
+                        <input type="text" className = "form-control" value={this.state.email} name="email" onChange={this.handleChange}/>
+                    </div>
+                    
                     <label>
                         <input type="submit"/>
                     </label>

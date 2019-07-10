@@ -7,41 +7,55 @@ import RegisterForm  from './components/Users/Register'
 import LoginForm from './components/Users/Login'
 import Account from './components/Users/Account'
 import Logout from './components/Users/Logout'
+import Welcome from './components/Users/Welcome'
 
 import ContactForm from './components/ContactPosts/contactForm'
+
+
 
 class App extends React.Component{
     render(){
         return(
             <div>
-                <BrowserRouter>
-                    <h2>{this.props.msg}</h2>
-                        <ul>
-                            {_.isEmpty(this.props.user)? (
-                                <div>
-                                    <Link to="/users/login">Login</Link> <br/>
-                                    <Link to="/users/register">Register</Link>
-                                    
+                <div className = "container">
+                    <div className= "Row">
+                        
+                        <BrowserRouter>
+                            <nav className="navbar navbar-dark bg-dark">
+                                <div className = "col-md-6">
+                                    <span className="navbar-brand mb-0 h3">{this.props.msg}</span>
                                 </div>
-                            ) : (
-                                <div>
-                                   <Link to="/users/account">Account</Link>
-                                   <Link to="/users/logout">Logout</Link>
-                                   
-                                </div>
-                            )}
-                        </ul>
-
-                        <Switch>
-                            <Route path="/users/login" component={LoginForm} exact/>
-                            <Route path ="/users/register" component={RegisterForm} exact/>
-                            <Route path="/users/account" component={Account} exact/>
-                            <Route path="/users/logout" component={Logout} exact/>
-
-                            <Route path="/contacts" component={ContactForm} exact/>
-                        </Switch>
-                </BrowserRouter>
+                                
+                                    <ul className = "navbar-nav">
+                                        {_.isEmpty(this.props.user)? (
+                                            <div>
+                                            <div className = "col-md-3"><li className = "nav-item active"><Link to="/users/login" className="nav-link" >Login</Link></li></div>
+                                            <div className = "col-md-3"><li className = "nav-item active "><Link to="/users/register" className="nav-link" >Register</Link></li></div>
+                                                
+                                            </div>
+                                        ) : (
+                                            <div>
+                                            <li className = "nav-item active"><Link to="/users/account" className="nav-link" >Account</Link></li>
+                                            <li className = "nav-item active"><Link to="/users/logout" className="nav-link" >Logout</Link></li>
+                                            
+                                            </div>
+                                        )}
+                                    </ul>
+                            </nav>
+                            <Switch>
+                                <Route path = "/" component = {Welcome} exact/>
+                                <Route path="/users/login" component={LoginForm} exact/>
+                                <Route path ="/users/register" component={RegisterForm} exact/>
+                                <Route path="/users/account" component={Account} exact/>
+                                <Route path="/users/logout" component={Logout} exact/>
+                                <Route path="/contacts" component={ContactForm} exact/>
+                            </Switch>
+                    </BrowserRouter>
+                
+                    </div>
+                </div>
             </div>
+           
         )
     }
 
@@ -50,7 +64,7 @@ class App extends React.Component{
 const mapStateToProps = (state)=>{
     return {
         user:state.user,
-        msg: 'Redux User Authnetication'
+        msg: 'Contact Manager'
     }
 }
 

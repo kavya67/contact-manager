@@ -37,14 +37,16 @@ class Account extends React.Component{
     render(){
         return(
             <div>
-                <h1>welcome {this.props.user.username}!</h1>
+                <h1 className="display-3 text-center">welcome {this.props.user.username}!</h1>
                 <h2>Contacts - {this.props.contacts.length} </h2>
-                <table>
+                <table className = "table">
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Mobile</th>
                             <th>Email</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +56,8 @@ class Account extends React.Component{
                                         <td>{contact.name}</td>
                                         <td>{contact.mobile}</td>
                                         <td>{contact.email}</td>
+                                        <td><button>Edit</button></td>
+                                        <td><button>Delete</button></td>
                                         </tr>
                                     
                             })}
