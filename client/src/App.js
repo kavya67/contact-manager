@@ -10,6 +10,8 @@ import Logout from './components/Users/Logout'
 import Welcome from './components/Users/Welcome'
 
 import ContactForm from './components/ContactPosts/contactForm'
+import ContactEdit from './components/ContactPosts/contactEdit'
+import ContactNew from './components/ContactPosts/ContactNew'
 
 
 
@@ -49,6 +51,8 @@ class App extends React.Component{
                                 <Route path="/users/account" component={Account} exact/>
                                 <Route path="/users/logout" component={Logout} exact/>
                                 <Route path="/contacts" component={ContactForm} exact/>
+                                <Route path = "/contacts/new" component = {ContactNew} exact/>
+                                <Route path = "/contacts/edit/:id" component = {ContactEdit} exact/>
                             </Switch>
                     </BrowserRouter>
                 

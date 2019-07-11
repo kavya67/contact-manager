@@ -56,8 +56,8 @@ class Account extends React.Component{
                                         <td>{contact.name}</td>
                                         <td>{contact.mobile}</td>
                                         <td>{contact.email}</td>
-                                        <td><button>Edit</button></td>
-                                        <td><button>Delete</button></td>
+                                        <td><Link to={`/contacts/edit/${contact._id}`}><button>Edit</button></Link></td>
+                                        <td><button >Delete</button></td>
                                         </tr>
                                     
                             })}
@@ -67,7 +67,7 @@ class Account extends React.Component{
 
                 
                 
-                <h3><Link to = '/contacts'>Add Contact</Link></h3>
+                <h3><Link to = '/contacts/new'>Add Contact</Link></h3>
             </div>
         )
     }

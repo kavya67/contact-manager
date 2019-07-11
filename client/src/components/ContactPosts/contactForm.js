@@ -1,7 +1,6 @@
 import React from 'react'
-import axios from '../../config/config'
-import {connect} from 'react-redux'
-import {addContact} from '../../actions/contactsAction'
+
+
 
 class ContactForm extends React.Component{
     constructor(props){
@@ -27,21 +26,29 @@ class ContactForm extends React.Component{
         const formData = {
             name: this.state.name,
             mobile: this.state.mobile,
-            email: this.state.email,
+            email: this.state.email
             
         }
-
-        axios.post(`/contacts`, formData , {
-            headers: {
-                'x-auth': localStorage.getItem('userAuthToken')
-            }
-        })
-            .then(response=>{
-                const contact = response.data
-                this.props.dispatch(addContact(contact))
-                this.props.history.push(`/users/account`)
-            })
+        
+        this.props.handleSubmit(formData)
+       
+        
     }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.contact){
+            console.log('nextprops',nextProps.contact.name)
+            this.setState(()=>({
+                name: nextProps.contact.name,
+                mobile: nextProps.contact.mobile,
+                email: nextProps.contact.email
+            }))
+        }else {
+            return null
+        }
+       
+    }
+
     render(){
         return(
             <div>
@@ -71,4 +78,4 @@ class ContactForm extends React.Component{
     }
 }
 
-export default connect()(ContactForm)
+export default ContactForm
