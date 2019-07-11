@@ -58,7 +58,7 @@ router.get('/:id',authenticateUser,(req,res)=>{
 router.put('/:id',authenticateUser,(req,res)=>{
     const id = req.params.id
     const body = req.body
-    Contact.findByOneAndUpdate({
+    Contact.findOneAndUpdate({
         user: req.user._id,
         _id: id
     },{$set:body},{new:true})
