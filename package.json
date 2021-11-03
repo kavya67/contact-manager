@@ -20,6 +20,6 @@
     "lodash": "^4.17.11",
     "lodash.pick": "^4.4.0",
     "mongoose": "^5.5.8",
-    "validator": "^11.0.0"
+    "validator": "^13.7.0"
   }
 }
